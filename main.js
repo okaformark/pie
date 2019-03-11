@@ -1,1 +1,5 @@
-console.log('pie');
+const pies =[
+    {
+        name: 'Duch apple pie',
+    }
+]
