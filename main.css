@@ -1,5 +1,5 @@
 body{
-    background-color: hotpink;
+    background-color: wheat;
 }
 
 #pie-name{
@@ -13,11 +13,15 @@ body{
     display: flex;
     border: 1px solid red;
     width: 30%;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    background-color: whitesmoke;
+    margin: 10px;
+
 }
 img{
     height: 150px;
     width: 150px;
     border-radius: 50%;
-
+    margin-bottom: 10px;
 }
