@@ -1,6 +1,23 @@
 body{
     background-color: hotpink;
 }
-.pie-list{
+
+#pie-name{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content:space-around;
     color: green;
+    
+}
+.card{
+    display: flex;
+    border: 1px solid red;
+    width: 30%;
+    justify-content: center;
+}
+img{
+    height: 150px;
+    width: 150px;
+    border-radius: 50%;
+
 }
