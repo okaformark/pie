@@ -40,7 +40,7 @@ const pies = [
       ingredients: 'Pecans, sugar, butter, flour',
       bakeTemp: 5000,
       drinkPairing: 'Milk',
-      imageURL: 'https://cookiesandcups.com/wp-content/uploads/2018/10/pecanpie-3.jpg',
+      imageUrl: 'https://cookiesandcups.com/wp-content/uploads/2018/10/pecanpie-3.jpg',
       instructor: 'Saul',
       iceCream: 'Vanilla',
     },
@@ -49,7 +49,7 @@ const pies = [
       ingredients: 'lemons, sugar, butter, flour',
       bakeTemp: 5000,
       drinkPairing: 'Water',
-      imageURL: 'https://www.williams-sonoma.com/wsimgs/rk/images/dp/recipe/201851/0020/img38l.jpg',
+      imageUrl: 'https://www.williams-sonoma.com/wsimgs/rk/images/dp/recipe/201851/0020/img38l.jpg',
       instructor: 'Saul',
       iceCream: 'none',
     },
@@ -61,21 +61,34 @@ const printToDom = (divId, textToPrint) => {
 
 const pieNames =()=>{
     let domString = '';
-    for(let i =0; i<pies.length; i++){
+    /*for(let i =0; i<pies.length; i++){
         domString += `<div class = pie-list>`;
         domString +=    `<h1>${pies[i].name}</h1>`;
         domString += `</div>`;
     }
-    printToDom('pie-name', domString);
+    printToDom('pie-name', domString);*/
 
     pies.forEach((type) =>{
-        domString += `<h2>${type.iceCream}</h2>`;
+
+        domString += `<div class = "card">`;
+        domString +=    `<h2>${type.name}</h2>`;
+        domString +=    `<img src =" ${type.imageUrl} ">`;
+        domString += `</div>`;
     });
     printToDom('pie-name', domString);
 
 };
+const buttonClick = () =>{
+    console.log('you clicked a button');
+};
+
+const buttonEvents =() =>{
+    document.getElementById('Zoe').addEventListener('click', buttonClick);
+};
 const init =()=>{
+    buttonEvents();
     pieNames();
 };
+
 
 init();
