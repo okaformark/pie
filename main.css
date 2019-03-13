@@ -17,7 +17,7 @@ body{
     align-items: center;
     background-color: whitesmoke;
     margin: 10px;
-
+    border-radius: 15%;
 }
 img{
     height: 150px;
