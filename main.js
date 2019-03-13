@@ -23,7 +23,7 @@ const pies = [
       bakeTemp: 42,
       drinkPairing: 'egg nog',
       imageUrl: 'https://cf-images.us-east-1.prod.boltdns.net/v1/static/1033249144001/22a0c25d-2fee-415c-a4e7-91d008e276bb/a904f3e2-3cd9-40d6-ace9-f8dbd2d616cd/1280x720/match/image.jpg',
-      instructor: 'Michael',
+      instructor: 'Mark',
       iceCream: 'Vanilla',
     },
     {
@@ -32,7 +32,7 @@ const pies = [
       bakeTemp: 1234,
       drinkPairing: 'Apple Cider',
       imageUrl: 'https://static01.nyt.com/images/2016/09/27/dining/27COOKING-SHOOFLY-PIE2/27COOKING-SHOOFLY-PIE2-articleLarge.jpg',
-      instructor: 'Michael',
+      instructor: 'Matt',
       iceCream: 'Coffee',
     },
     {
@@ -59,7 +59,7 @@ const printToDom = (divId, textToPrint) => {
     selectedDiv.innerHTML = textToPrint;
 };
 
-const pieNames =()=>{
+const pieBuilder =(monkeyButt)=>{
     let domString = '';
     /*for(let i =0; i<pies.length; i++){
         domString += `<div class = pie-list>`;
@@ -68,7 +68,7 @@ const pieNames =()=>{
     }
     printToDom('pie-name', domString);*/
 
-    pies.forEach((type) =>{
+    monkeyButt.forEach((type) =>{
 
         domString += `<div class = "card">`;
         domString +=    `<h2>${type.name}</h2>`;
@@ -78,16 +78,36 @@ const pieNames =()=>{
     printToDom('pie-name', domString);
 
 };
-const buttonClick = () =>{
-    console.log('you clicked a button');
+const buttonClick = (e) => {
+    const buttonId =e.target.id;
+    const selectedPies =[];
+    //loop over pie array
+    pies.forEach((pie)=>{
+        if(pie.instructor ===buttonId){
+            selectedPies.push(pie);
+        }
+    });
+    if (buttonId === 'All'){
+        pieBuilder(pies);
+    }
+    else{
+        pieBuilder(selectedPies);
+    }
+    //console.log('you clicked a button',e.target.id);
+   
 };
 
 const buttonEvents =() =>{
     document.getElementById('Zoe').addEventListener('click', buttonClick);
+    document.getElementById('Saul').addEventListener('click', buttonClick);
+    document.getElementById('Mark').addEventListener('click', buttonClick);
+    document.getElementById('Matt').addEventListener('click', buttonClick);
+    document.getElementById('All').addEventListener('click', buttonClick);
 };
+
 const init =()=>{
     buttonEvents();
-    pieNames();
+    pieBuilder(pies);
 };
 
 
